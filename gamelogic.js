@@ -29,7 +29,8 @@ function displayWordSoFar(word, guesses) {
 //if word is equal to displayedWord then all letters have been guessed
 
 function isGameWon(word, guesses) {
-
+    let displayedWord = displayWordSoFar(word, guesses);
+    return displayedWord.replace(/ /g, "") === word;
 }
 
 function isGameLost(word, guesses) {
