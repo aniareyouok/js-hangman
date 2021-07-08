@@ -23,10 +23,12 @@ function displayWordSoFar(word, guesses) {
   return displayedWord;
 }
 
-//returns false when all letters have not been guessed yet
-//if word is NOT equal to displayedWord
 //returns true when all letters have been guessed
 //if word is equal to displayedWord then all letters have been guessed
+//returns false when all letters have not been guessed yet
+//if word is NOT equal to displayedWord
+//somehow .replace(" ", "") or replaceAll(" ", "") only removed the first space
+//so found this tip on stackoverflow to use / /g instead of " " and it removes all the spaces!
 
 function isGameWon(word, guesses) {
     let displayedWord = displayWordSoFar(word, guesses);
