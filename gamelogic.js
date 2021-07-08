@@ -23,8 +23,13 @@ function displayWordSoFar(word, guesses) {
   return displayedWord;
 }
 
+//returns false when all letters have not been guessed yet
+//if word is NOT equal to displayedWord
+//returns true when all letters have been guessed
+//if word is equal to displayedWord then all letters have been guessed
+
 function isGameWon(word, guesses) {
-  // WRITE ME
+
 }
 
 function isGameLost(word, guesses) {
