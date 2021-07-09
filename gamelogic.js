@@ -35,8 +35,12 @@ function isGameWon(word, guesses) {
     return displayedWord.replace(/ /g, "") === word;
 }
 
+//returns true if 7 or more incorrect letters have been guessed
+//returns false if less than 7 wrong letters have been guessed
+//let wrongLetters counts all wrong guesses
+
 function isGameLost(word, guesses) {
-  // WRITE ME
+
 }
 
 module.exports = {
