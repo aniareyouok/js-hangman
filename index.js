@@ -2,15 +2,22 @@ const { question } = require("readline-sync");
 const { displayWordSoFar, isGameWon, isGameLost } = require("./gamelogic");
 
 function game(word, guesses) {
-  console.log("Dit heb je tot nu toe geraden: ", guesses);
+
+  console.log("Welk word is dit: ", displayWordSoFar(word, guesses));
 
   const letter = question("Raad een letter: ");
 
   // voeg de geraden letter toe aan de array met guesses
   guesses.push(letter);
 
-  // volgende ronde! we roepen game nog een keer aan
-  game(word, guesses);
+  if (isGameWon(word, guesses)) {
+    console.log("Je bent fantastisch!");
+  }
+  if (isGameLost(word, guesses)) {
+    console.log("Je hangt!")
+  } else {
+    game(word, guesses); // volgende ronde! we roepen game nog een keer aan
+  }
 }
 
 console.log(`
