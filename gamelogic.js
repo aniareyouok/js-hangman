@@ -40,7 +40,13 @@ function isGameWon(word, guesses) {
 //let wrongLetters counts all wrong guesses
 
 function isGameLost(word, guesses) {
-
+    let wrongLetters = 0;
+    for (i = 0; i < guesses.length; i++) {
+        if (!word.includes(guesses[i])) {
+            wrongLetters++;
+        }
+    }
+    return wrongLetters === 7;
 }
 
 module.exports = {
