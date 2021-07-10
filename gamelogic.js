@@ -40,17 +40,36 @@ function isGameWon(word, guesses) {
 //let wrongLetters counts all wrong guesses
 
 function isGameLost(word, guesses) {
-    let wrongLetters = 0;
-    for (i = 0; i < guesses.length; i++) {
+    //Maakte een functie wrongGuess die deze code overbodig maakte
+    // let wrongLetters = 0;
+    // for (i = 0; i < guesses.length; i++) {
+    //     if (!word.includes(guesses[i])) {
+    //         wrongLetters++;
+    //     }
+    // }
+    // return wrongLetters === 7;
+
+    return (wrongGuess(word, guesses).length === 7);
+}
+
+//wrongGuess houdt bij welke letters verkeerd geraden zijn en wanneer opgeroepen worden deze getoond op het scherm.
+//de foor loop gaat elke geraden letter in de array guesses af
+//en checkt of het word deze letters NIET bevat
+//dan wordt het verkeerd geraden letter met push toegevoegd aan de array wrongGuesses
+
+function wrongGuess(word, guesses) {
+    let wrongGuesses = [];
+    for (i = 0; i <guesses.length; i++) {
         if (!word.includes(guesses[i])) {
-            wrongLetters++;
+            wrongGuesses.push(guesses[i]);
         }
-    }
-    return wrongLetters === 7;
+    } return wrongGuesses;
+
 }
 
 module.exports = {
   displayWordSoFar: displayWordSoFar,
   isGameWon: isGameWon,
   isGameLost: isGameLost,
+  wrongGuess: wrongGuess,
 };

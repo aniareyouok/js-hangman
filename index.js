@@ -1,9 +1,11 @@
 const { question } = require("readline-sync");
-const { displayWordSoFar, isGameWon, isGameLost } = require("./gamelogic");
+const { displayWordSoFar, isGameWon, isGameLost, wrongGuess, } = require("./gamelogic");
 
 function game(word, guesses) {
 
   console.log("Welk word is dit: ", displayWordSoFar(word, guesses));
+
+  console.log(wrongGuess(word, guesses));
 
   const letter = question("Raad een letter: ");
 
@@ -11,13 +13,16 @@ function game(word, guesses) {
   guesses.push(letter);
 
   if (isGameWon(word, guesses)) {
+    console.log(displayWordSoFar(word, guesses));
     console.log("Je bent fantastisch!");
-  }
-  if (isGameLost(word, guesses)) {
+  } else if (isGameLost(word, guesses)) {
     console.log("Je hangt!")
   } else {
     game(word, guesses); // volgende ronde! we roepen game nog een keer aan
   }
+
+
+
 }
 
 console.log(`
@@ -30,4 +35,15 @@ __________
 ===========  ░╚═════╝░╚═╝░░╚═╝╚══════╝░╚═════╝░░╚════╝░╚══════╝
 `);
 
-game("javascript", []);
+
+
+
+
+
+const library = ['codeersfeer', 'multipluttificatie', 'boolean', 'array', 'integer'];
+const word = library[Math.floor(Math.random()*library.length)];
+game(word, []);
+
+
+
+
