@@ -7,14 +7,20 @@ function game(word, guesses) {
 
   console.log(wrongGuess(word, guesses));
 
-  const letter = question("Raad een letter: ");
+  const letter = question("Raad een letter: ").toLowerCase();
 
-  // voeg de geraden letter toe aan de array met guesses
-  guesses.push(letter);
+  if(letter.length > 1 ) {
+    console.log("Je moet 1 letter raden per keer");
+  } else {
+
+    // voeg de geraden letter toe aan de array met guesses
+    guesses.push(letter);
+
+  }
 
   if (isGameWon(word, guesses)) {
-    console.log(displayWordSoFar(word, guesses));
-    console.log("Je bent fantastisch!");
+    console.log("Het geheime word was: " + displayWordSoFar(word, guesses));
+    console.log("Je bebt het goed geraden!");
   } else if (isGameLost(word, guesses)) {
     console.log("Je hangt!")
   } else {
