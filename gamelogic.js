@@ -63,8 +63,96 @@ function wrongGuess(word, guesses) {
         if (!word.includes(guesses[i])) {
             wrongGuesses.push(guesses[i]);
         }
-    } return wrongGuesses;
+    } return wrongGuesses
 
+}
+
+//everytime a wrong letter is guessed another part of
+//the hangman is being added
+//based on the length of the wrongGuesses array
+function gallows(word, guesses) {
+    switch(wrongGuess(word, guesses).length) {
+        case 1:
+            console.log(`
+ __________
+| /     |
+|/      
+|       
+|       
+|
+===========`);
+            break;
+        case 2:
+            console.log(`
+ __________
+| /     |
+|/      o
+|       
+|       
+|
+===========`);
+            break;
+        case 3:
+            console.log(`
+ __________
+| /     |
+|/      o
+|       O
+|       
+|
+===========`);
+            break;
+        case 4:
+            console.log(`
+ __________
+| /     |
+|/     _o
+|       O
+|       
+|
+===========`);
+            break;
+        case 5:
+            console.log(`
+ __________
+| /     |
+|/     _o_
+|       O
+|       
+|
+===========`);
+            break;
+        case 6:
+            console.log(`
+ __________
+| /     |
+|/     _o_
+|       O
+|      / 
+|
+===========`);
+            break;
+        case 7:
+            console.log(`
+ __________
+| /     |
+|/     _o_
+|       O
+|      / \
+|
+===========`);
+            break;
+        default:
+            console.log(`
+ __________
+| /     
+|/     
+|       
+|      
+|
+===========`);
+
+    }
 }
 
 module.exports = {
@@ -72,4 +160,5 @@ module.exports = {
   isGameWon: isGameWon,
   isGameLost: isGameLost,
   wrongGuess: wrongGuess,
+    gallows: gallows,
 };

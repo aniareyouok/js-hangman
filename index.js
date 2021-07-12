@@ -1,11 +1,15 @@
 const { question } = require("readline-sync");
-const { displayWordSoFar, isGameWon, isGameLost, wrongGuess, } = require("./gamelogic");
+const { displayWordSoFar, isGameWon, isGameLost, wrongGuess, gallows } = require("./gamelogic");
 
 //the game starts here
 function game(word, guesses) {
 
   //logs the hidden word and every correctly guessed letter
   console.log("Welk word is dit: ", displayWordSoFar(word, guesses));
+
+  //logs the gallows and every wrong letter another part of the hangman is being added
+  gallows(word, guesses);
+
 
   //logs the wrong letters guessed
   console.log(wrongGuess(word, guesses));
@@ -28,14 +32,16 @@ function game(word, guesses) {
 
   // if game is won, the correctly guessed word is shown
   // and a message saying you've guessed the word and the game is stopped
-  // otherwise, if game is lost, a message saying you've been hanged, will be shown
-  // and the game wil be stopped
+  // otherwise, if game is lost, a message saying you've been hanged, will be shown,
+  // the gallows with hangman, the complete array of wrong letters and the game wil be stopped
   // in all other cases the game wil continue (the game() function)
   if (isGameWon(word, guesses)) {
     console.log("Het geheime word was: " + displayWordSoFar(word, guesses));
     console.log("Je hebt het goed geraden!");
   } else if (isGameLost(word, guesses)) {
     console.log("Je hangt!")
+    gallows(word, guesses);
+    console.log(wrongGuess(word, guesses));
   } else {
     game(word, guesses); // volgende ronde! we roepen game nog een keer aan
   }
