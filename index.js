@@ -5,7 +5,7 @@ const { displayWordSoFar, isGameWon, isGameLost, wrongGuess, gallows } = require
 function game(word, guesses) {
 
   //logs the hidden word and every correctly guessed letter
-  console.log("Welk word is dit: ", displayWordSoFar(word, guesses));
+  console.log("\nWelk word is dit: ", displayWordSoFar(word, guesses));
 
   //logs the gallows and every wrong letter another part of the hangman is being added
   gallows(word, guesses);
@@ -21,7 +21,7 @@ function game(word, guesses) {
   //only 1 character may be entered at a time
   //input of 2 characters will not be pushed to guesses
   if(letter.length > 1 ) {
-    console.log("Je moet 1 letter raden per keer");
+    console.log("\nJe moet 1 letter raden per keer");
   } else {
 
     // adds the guessed letter to the array of guesses
@@ -36,10 +36,13 @@ function game(word, guesses) {
   // the gallows with hangman, the complete array of wrong letters and the game wil be stopped
   // in all other cases the game wil continue (the game() function)
   if (isGameWon(word, guesses)) {
-    console.log("Het geheime word was: " + displayWordSoFar(word, guesses));
-    console.log("Je hebt het goed geraden!");
+    console.log("\nFANTASTISCH!");
+    console.log("\nHelemaal goed geraden: " + displayWordSoFar(word, guesses));
+    gallows(word, guesses);
+    console.log(wrongGuess(word, guesses));
   } else if (isGameLost(word, guesses)) {
-    console.log("Je hangt!")
+    console.log("\nWelk word is dit:" + displayWordSoFar(word, guesses));
+    console.log("\n  JE HANGT!");
     gallows(word, guesses);
     console.log(wrongGuess(word, guesses));
   } else {
