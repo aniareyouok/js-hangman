@@ -65,7 +65,7 @@ __________
 
 
 //every new game a random word wil be chosen from the library array
-const library = ['codeersfeer', 'multipluttificatie', 'boolean', 'array', 'integer'];
+const library = ['destructuring', 'eventlistener', 'boolean', 'array', 'integer'];
 const word = library[Math.floor(Math.random()*library.length)];
 game(word, []);
 
