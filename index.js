@@ -67,7 +67,3 @@ __________
 const library = ['destructuring', 'eventlistener', 'boolean', 'array', 'integer'];
 const word = library[Math.floor(Math.random()*library.length)];
 game(word, []);
-
-
-
-

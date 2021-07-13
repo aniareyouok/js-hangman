@@ -13,14 +13,14 @@ function displayWordSoFar(word, guesses) {
     let displayedWord = "";
     word = word.split("");
 
-  for (let i = 0; i < word.length; i++) {
-      if (guesses.includes(word[i])) {
-          displayedWord += word[i] + " ";
-      } else {
-          displayedWord += "_ "
-      }
-  }
-  return displayedWord;
+    for (let i = 0; i < word.length; i++) {
+        if (guesses.includes(word[i])) {
+            displayedWord += word[i] + " ";
+        } else {
+            displayedWord += "_ "
+        }
+    }
+    return displayedWord;
 }
 
 //returns true when all letters have been guessed
@@ -153,9 +153,9 @@ function gallows(word, guesses) {
 }
 
 module.exports = {
-  displayWordSoFar: displayWordSoFar,
-  isGameWon: isGameWon,
-  isGameLost: isGameLost,
-  wrongGuess: wrongGuess,
+    displayWordSoFar: displayWordSoFar,
+    isGameWon: isGameWon,
+    isGameLost: isGameLost,
+    wrongGuess: wrongGuess,
     gallows: gallows,
 };
