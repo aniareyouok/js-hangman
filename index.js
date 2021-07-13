@@ -28,10 +28,8 @@ function game(word, guesses) {
 
   }
 
-  // if game is won, the correctly guessed word is shown
-  // and a message saying you've guessed the word and the game is stopped
-  // otherwise, if game is lost, a message saying you've been hanged, will be shown,
-  // the gallows with hangman, the complete array of wrong letters and the game wil be stopped
+  // if game is won, win-message, correct word, wrong letter array and gallows are shown and game is stopped.
+  // if game is lost, loose-message, word so far, wrong letter array and gallows are shown and game is stopped.
   // in all other cases the game wil continue (the game() function)
   if (isGameWon(word, guesses)) {
     console.log("\nFANTASTISCH!");

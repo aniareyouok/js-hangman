@@ -1,4 +1,4 @@
-//displays "_ " for each letter to guess (for loop until word.length with console.log "_ " every loop)
+//displays a underscore "_ " for each letter to guess
 //displays letters guessed so far
 // - displayedWord is a string variabel to collect results in
 // - word = word.split(""); makes a array of a string with each letter at own index
@@ -38,7 +38,6 @@ function isGameWon(word, guesses) {
 //returns true if 7 or more incorrect letters have been guessed
 //returns false if less than 7 wrong letters have been guessed
 //let wrongLetters counts all wrong guesses
-
 function isGameLost(word, guesses) {
     //Maakte een functie wrongGuess die deze code overbodig maakte
     // let wrongLetters = 0;
@@ -52,11 +51,9 @@ function isGameLost(word, guesses) {
     return (wrongGuess(word, guesses).length === 7);
 }
 
-//wrongGuess houdt bij welke letters verkeerd geraden zijn en wanneer opgeroepen worden deze getoond op het scherm.
-//de foor loop gaat elke geraden letter in de array guesses af
-//en checkt of het word deze letters NIET bevat
-//dan wordt het verkeerd geraden letter met push toegevoegd aan de array wrongGuesses
-
+// wrongGuess adds wrong guessed letters to the wrongGuesses array
+// a for loop checks every letter of the array and
+// if a wrong letter is NOT in the array it will be added with (push()).
 function wrongGuess(word, guesses) {
     let wrongGuesses = [];
     for (i = 0; i <guesses.length; i++) {
