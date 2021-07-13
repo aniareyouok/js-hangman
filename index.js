@@ -7,10 +7,6 @@ function game(word, guesses) {
   //logs the hidden word and every correctly guessed letter
   console.log("\nWelk word is dit: ", displayWordSoFar(word, guesses));
 
-  //logs the gallows and every wrong letter another part of the hangman is being added
-  gallows(word, guesses);
-
-
   //logs the wrong letters guessed
   console.log(wrongGuess(word, guesses));
 
@@ -27,8 +23,10 @@ function game(word, guesses) {
     // adds the guessed letter to the array of guesses
     guesses.push(letter);
 
-  }
+    //logs the gallows and every wrong letter another part of the hangman is being added
+    gallows(word, guesses);
 
+  }
 
   // if game is won, the correctly guessed word is shown
   // and a message saying you've guessed the word and the game is stopped
@@ -38,13 +36,13 @@ function game(word, guesses) {
   if (isGameWon(word, guesses)) {
     console.log("\nFANTASTISCH!");
     console.log("\nHelemaal goed geraden: " + displayWordSoFar(word, guesses));
-    gallows(word, guesses);
     console.log(wrongGuess(word, guesses));
+    gallows(word, guesses);
   } else if (isGameLost(word, guesses)) {
     console.log("\nWelk word is dit:" + displayWordSoFar(word, guesses));
     console.log("\n  JE HANGT!");
-    gallows(word, guesses);
     console.log(wrongGuess(word, guesses));
+    gallows(word, guesses);
   } else {
     game(word, guesses); // volgende ronde! we roepen game nog een keer aan
   }
