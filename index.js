@@ -1,7 +1,7 @@
 const { question } = require("readline-sync");
 const { displayWordSoFar, isGameWon, isGameLost, wrongGuess, gallows } = require("./gamelogic");
 
-//the game starts here
+//the game starts here!
 function game(word, guesses) {
 
   //logs the hidden word and every correctly guessed letter
